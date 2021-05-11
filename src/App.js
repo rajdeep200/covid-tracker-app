@@ -60,8 +60,6 @@ function App() {
     // https://disease.sh/v3/covid-19/countries/[COUNTRY_CODE]
   };
 
-  console.log(tableData)
-
   return (
     <div className="app">
       <div className="app__left">

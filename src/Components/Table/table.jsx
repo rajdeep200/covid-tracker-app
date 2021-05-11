@@ -1,4 +1,5 @@
 import React from "react";
+import "./table.css"
 
 const Table = ({ countries }) => {
   return (
@@ -10,7 +11,7 @@ const Table = ({ countries }) => {
             <strong>{cases}</strong>
           </td>
         </tr>
-      ))}
+      ))} 
     </div>
   );
 };
