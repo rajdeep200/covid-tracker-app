@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Line, defaults } from "react-chartjs-2";
-import numeral from "numeral";
 
 // defaults.plugins.tooltip.enabled = true
 defaults.plugins.legend.display = false;
@@ -31,14 +30,12 @@ const LineGraph = ({ casesType = "cases" }) => {
       await fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           let chartData = buildChartData(data, casesType);
-          console.log(chartData);
           setData(chartData);
         });
     };
     fetchData();
-  }, []);
+  }, [casesType]);
 
   return (
     <div>
