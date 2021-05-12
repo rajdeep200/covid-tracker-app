@@ -2,13 +2,22 @@
   margin: 0;
 }
 body{
-  background-color: rgb(230, 230, 230);
+  background-image: linear-gradient(to bottom right, rgb(238, 255, 0), rgb(255, 0, 0));
 }
-
+/* https://cdn.wallpapersafari.com/26/88/C4hA3p.jpg */
 .app{
   display: flex;
   justify-content: space-evenly;
   padding: 20px;
+}
+
+.particles {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .app__dropdown {
@@ -31,7 +40,7 @@ body{
 }
 
 .app__header h1{
-  color:red;
+  color:rgb(255, 0, 0);
 }
 
 .app__stats{
