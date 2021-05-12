@@ -10,6 +10,7 @@ import InfoBox from "./Components/Infobox/infoBox";
 import Map from "./Components/Map/map";
 import Table from "./Components/Table/table";
 import LineGraph from "./Components/Linegraph/linegraph";
+import Loader from "./Components/Loader/loader"
 import { printStat, printStatTotal } from "./utils/utils";
 import "./App.css";
 import "leaflet/dist/leaflet.css";
@@ -23,8 +24,16 @@ function App() {
   const [mapZoom, setMapZoom] = useState(3);
   const [mapCountries, setMapCountries] = useState([]);
   const [casesType, setCasesType] = useState("cases");
+  const [loading, setLoading] = useState(false)
 
   // https://disease.sh/v3/covid-19/countries
+
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 800);
+  }, [])
 
   useEffect(() => {
     fetch("https://disease.sh/v3/covid-19/all")
@@ -70,7 +79,10 @@ function App() {
   };
 
   return (
-    <div className="app">
+    <>
+    {
+      loading ? <Loader/> : (
+        <div className="app">
       <div className="app__left">
         <div className="app__header">
           <h1>COVID-19 TRACKER</h1>
@@ -131,6 +143,10 @@ function App() {
         </CardContent>
       </Card>
     </div>
+      )
+    }
+    </>
+  
   );
 }
 
