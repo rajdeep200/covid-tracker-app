@@ -6,9 +6,10 @@ import {
   Card,
   CardContent,
 } from "@material-ui/core";
-import InfoBox from "./Components/infobox/infoBox";
+import InfoBox from "./Components/Infobox/infoBox";
 import Map from "./Components/Map/map";
 import Table from "./Components/Table/table"
+import LineGraph from "./Components/Linegraph/linegraph"
 import "./App.css";
 
 function App() {
@@ -67,6 +68,7 @@ function App() {
           <h1>COVID-19 TRACKER</h1>
           <FormControl>
             <Select
+              className="app__dropdown"
               variant="outlined"
               value={country}
               onChange={onCountryChange}
@@ -107,6 +109,7 @@ function App() {
           <h3>Live Cases By Country</h3>
           <Table countries={tableData} />
           <h3>Worldwide new cases</h3>
+          <LineGraph />
         </CardContent>
       </Card>
     </div>
